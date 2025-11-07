@@ -1,0 +1,12 @@
+id:
+  type: string
+  description: The ID of the todo
+  example: "123"
+title:
+  type: string
+  description: The title of the todo
+  example: Buy groceries
+completed:
+  type: boolean
+  description: Whether the todo is completed
+  example: false

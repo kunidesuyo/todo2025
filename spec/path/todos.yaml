@@ -1,0 +1,8 @@
+get:
+  operationId: getTodos
+  summary: Get all todos
+  description: Get all todos
+  tags:
+    - Todos
+  responses:
+    "200": { $ref: "../response/todos.yaml#/getResponse" }

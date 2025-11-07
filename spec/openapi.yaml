@@ -1,0 +1,14 @@
+openapi: 3.0.3
+info:
+  title: 2025 TODO
+  version: 1.0.0
+  description: API for 2025 TODO
+
+servers:
+  - url: http://localhost:8000
+    description: Local development server
+
+security: []
+
+paths:
+  /todos: { $ref: "path/todos.yaml" }

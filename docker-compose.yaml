@@ -1,0 +1,19 @@
+version: '3.8'
+
+services:
+  spec:
+    build:
+      context: ./spec
+      dockerfile: Dockerfile
+    ports:
+      - "8081:8080"
+    volumes:
+      - ./spec:/openapi
+    environment:
+      SWAGGER_JSON: /openapi/openapi.yaml
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge
