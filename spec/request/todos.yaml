@@ -1,0 +1,10 @@
+postRequest:
+  description: Create a todo
+  content:
+    application/json:
+      schema:
+        type: object
+        properties:
+          title: { $ref: "../schema/todo.yaml#/title" }
+        required:
+          - title

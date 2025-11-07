@@ -6,3 +6,12 @@ get:
     - Todos
   responses:
     "200": { $ref: "../response/todos.yaml#/getResponse" }
+post:
+  operationId: createTodo
+  summary: Create a todo
+  description: Create a todo
+  tags:
+    - Todos
+  requestBody: { $ref: "../request/todos.yaml#/postRequest" }
+  responses:
+    "201": { $ref: "../response/todos.yaml#/postResponse" }

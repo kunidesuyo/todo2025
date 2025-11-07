@@ -10,3 +10,11 @@ getResponse:
             id: { $ref: "../schema/todo.yaml#/id" }
             title: { $ref: "../schema/todo.yaml#/title" }
             completed: { $ref: "../schema/todo.yaml#/completed" }
+postResponse:
+  description: Created
+  content:
+    application/json:
+      schema:
+        type: object
+        properties:
+          id: { $ref: "../schema/todo.yaml#/id" }
