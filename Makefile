@@ -15,6 +15,13 @@ spec/lint:
 spec/format:
 	docker compose exec spec prettier --write /openapi/**/*.yaml
 
+spec/format-check:
+	docker compose exec spec prettier --check /openapi/**/*.yaml
+
 spec/check:
+	$(MAKE) spec/format-check
+	$(MAKE) spec/lint
+
+spec/fix:
 	$(MAKE) spec/format
 	$(MAKE) spec/lint
