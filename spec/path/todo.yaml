@@ -1,0 +1,12 @@
+get:
+  operationId: getTodo
+  summary: Get todo
+  description: Get todo
+  tags:
+    - Todos
+  parameters:
+    - { $ref: "../request/todo.yaml#/getRequest/todoId" }
+  responses:
+    "200": { $ref: "../response/todo.yaml#/getResponse" }
+# patch:
+# delete:

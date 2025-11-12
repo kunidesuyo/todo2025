@@ -12,3 +12,4 @@ security: []
 
 paths:
   /todos: { $ref: "path/todos.yaml" }
+  /todos/{todoId}: { $ref: "path/todo.yaml" }

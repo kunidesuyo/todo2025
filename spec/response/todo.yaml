@@ -1,0 +1,10 @@
+getResponse:
+  description: OK
+  content:
+    application/json:
+      schema:
+        type: object
+        properties:
+          id: { $ref: "../schema/todo.yaml#/id" }
+          title: { $ref: "../schema/todo.yaml#/title" }
+          completed: { $ref: "../schema/todo.yaml#/completed" }
