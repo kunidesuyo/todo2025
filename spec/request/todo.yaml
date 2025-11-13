@@ -24,3 +24,10 @@ updateRequest:
           required:
             - title
             - completed
+deleteRequest:
+  todoId:
+    name: todoId
+    in: path
+    description: todo id
+    required: true
+    schema: { $ref: "../schema/todo.yaml#/id" }

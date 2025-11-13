@@ -19,4 +19,13 @@ patch:
   requestBody: { $ref: "../request/todo.yaml#/updateRequest/body" }
   responses:
     "200": { $ref: "../response/todo.yaml#/updateResponse" }
-# delete:
+delete:
+  operationId: deleteTodo
+  summary: Delete todo
+  description: Delete todo
+  tags:
+    - Todos
+  parameters:
+    - { $ref: "../request/todo.yaml#/deleteRequest/todoId" }
+  responses:
+    "204": { $ref: "../response/todo.yaml#/deleteResponse" }

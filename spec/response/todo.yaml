@@ -18,3 +18,5 @@ updateResponse:
           id: { $ref: "../schema/todo.yaml#/id" }
           title: { $ref: "../schema/todo.yaml#/title" }
           completed: { $ref: "../schema/todo.yaml#/completed" }
+deleteResponse:
+  description: No content
