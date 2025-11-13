@@ -25,3 +25,9 @@ spec/check:
 spec/fix:
 	$(MAKE) spec/format
 	$(MAKE) spec/lint
+
+api/restart:
+	docker compose restart api	
+
+api/exec-it:
+	docker compose exec -it api sh
