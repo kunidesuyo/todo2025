@@ -8,5 +8,15 @@ get:
     - { $ref: "../request/todo.yaml#/getRequest/todoId" }
   responses:
     "200": { $ref: "../response/todo.yaml#/getResponse" }
-# patch:
+patch:
+  operationId: updateTodo
+  summary: Update todo
+  description: Update todo
+  tags:
+    - Todos
+  parameters:
+    - { $ref: "../request/todo.yaml#/updateRequest/todoId" }
+  requestBody: { $ref: "../request/todo.yaml#/updateRequest/body" }
+  responses:
+    "200": { $ref: "../response/todo.yaml#/updateResponse" }
 # delete:

@@ -5,3 +5,22 @@ getRequest:
     description: todo id
     required: true
     schema: { $ref: "../schema/todo.yaml#/id" }
+updateRequest:
+  todoId:
+    name: todoId
+    in: path
+    description: todo id
+    required: true
+    schema: { $ref: "../schema/todo.yaml#/id" }
+  body:
+    description: Create a todo
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            title: { $ref: "../schema/todo.yaml#/title" }
+            completed: { $ref: "../schema/todo.yaml#/completed" }
+          required:
+            - title
+            - completed
