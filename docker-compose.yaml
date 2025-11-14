@@ -24,7 +24,6 @@ services:
       - ./api:/app
     networks:
       - app-network
-    command: go run .
 
 networks:
   app-network:
