@@ -1,0 +1,168 @@
+openapi: 3.0.3
+info:
+  title: 2025 TODO
+  version: 1.0.0
+  description: API for 2025 TODO
+servers:
+  - url: http://localhost:8000
+    description: Local development server
+security: []
+paths:
+  /todos:
+    get:
+      operationId: getTodos
+      summary: Get all todos
+      description: Get all todos
+      tags:
+        - Todos
+      responses:
+        '200':
+          $ref: '#/components/responses/getResponse'
+    post:
+      operationId: createTodo
+      summary: Create a todo
+      description: Create a todo
+      tags:
+        - Todos
+      requestBody:
+        $ref: '#/components/requestBodies/postRequest'
+      responses:
+        '201':
+          $ref: '#/components/responses/postResponse'
+  /todos/{todoId}:
+    get:
+      operationId: getTodo
+      summary: Get todo
+      description: Get todo
+      tags:
+        - Todos
+      parameters:
+        - $ref: '#/components/parameters/todoId'
+      responses:
+        '200':
+          $ref: '#/components/responses/todo_getResponse'
+    patch:
+      operationId: updateTodo
+      summary: Update todo
+      description: Update todo
+      tags:
+        - Todos
+      parameters:
+        - $ref: '#/components/parameters/todoId'
+      requestBody:
+        $ref: '#/components/requestBodies/body'
+      responses:
+        '200':
+          $ref: '#/components/responses/updateResponse'
+    delete:
+      operationId: deleteTodo
+      summary: Delete todo
+      description: Delete todo
+      tags:
+        - Todos
+      parameters:
+        - $ref: '#/components/parameters/todoId'
+      responses:
+        '204':
+          $ref: '#/components/responses/deleteResponse'
+components:
+  schemas:
+    id:
+      type: string
+      description: The ID of the todo
+      example: '123'
+    title:
+      type: string
+      description: The title of the todo
+      example: Buy groceries
+    completed:
+      type: boolean
+      description: Whether the todo is completed
+      example: false
+  responses:
+    getResponse:
+      description: OK
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              type: object
+              properties:
+                id:
+                  $ref: '#/components/schemas/id'
+                title:
+                  $ref: '#/components/schemas/title'
+                completed:
+                  $ref: '#/components/schemas/completed'
+    postResponse:
+      description: Created
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              id:
+                $ref: '#/components/schemas/id'
+    todo_getResponse:
+      description: OK
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              id:
+                $ref: '#/components/schemas/id'
+              title:
+                $ref: '#/components/schemas/title'
+              completed:
+                $ref: '#/components/schemas/completed'
+    deleteResponse:
+      description: No content
+    updateResponse:
+      description: OK
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              id:
+                $ref: '#/components/schemas/id'
+              title:
+                $ref: '#/components/schemas/title'
+              completed:
+                $ref: '#/components/schemas/completed'
+  requestBodies:
+    postRequest:
+      description: Create a todo
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              title:
+                $ref: '#/components/schemas/title'
+            required:
+              - title
+    body:
+      description: Create a todo
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              title:
+                $ref: '#/components/schemas/title'
+              completed:
+                $ref: '#/components/schemas/completed'
+            required:
+              - title
+              - completed
+  parameters:
+    todoId:
+      name: todoId
+      in: path
+      description: todo id
+      required: true
+      schema:
+        $ref: '#/components/schemas/id'

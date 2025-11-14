@@ -27,7 +27,11 @@ spec/fix:
 	$(MAKE) spec/lint
 
 api/restart:
-	docker compose restart api	
+	docker compose restart api
 
 api/exec-it:
 	docker compose exec -it api sh
+
+api/gen:
+	docker compose exec spec redocly bundle /openapi/openapi.yaml -o /openapi/openapi.bundled.yaml
+	docker compose exec api oapi-codegen -config /app/api/config.yaml /app/spec/openapi.bundled.yaml

@@ -4,14 +4,15 @@ FROM golang:1.25-alpine
 # 必要なパッケージをインストール
 RUN apk add --no-cache git
 
-# 作業ディレクトリを設定
-WORKDIR /app
+COPY spec/ /app/spec/
+COPY api/ /app/api/
+
+WORKDIR /app/api
 
 # ホットリロードするためにairをインストール
 RUN go install github.com/air-verse/air@latest
 
-# ソースコードを全てコピー
-COPY . .
+RUN go install github.com/oapi-codegen/oapi-codegen/v2/cmd/oapi-codegen@latest
 
 # 依存関係をダウンロード
 RUN go mod download

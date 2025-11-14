@@ -16,12 +16,13 @@ services:
 
   api:
     build:
-      context: ./api
-      dockerfile: Dockerfile
+      context: .
+      dockerfile: ./api/Dockerfile
     ports:
       - "8080:8080"
     volumes:
-      - ./api:/app
+      - ./api:/app/api
+      - ./spec:/app/spec
     networks:
       - app-network
 
