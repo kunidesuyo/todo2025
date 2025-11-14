@@ -1,2 +1,2 @@
-docker compose exec -T spec prettier --check /openapi/**/*.yaml
+docker compose exec -T spec prettier --check /openapi/**/*.yaml --ignore-path /openapi/.prettierignore
 docker compose exec -T spec redocly lint --config /openapi/.redocly.yaml /openapi/openapi.yaml
