@@ -7,7 +7,7 @@ RUN apk add --no-cache git
 # 作業ディレクトリを設定
 WORKDIR /app
 
-# ホットリロードようにairをインストール
+# ホットリロードするためにairをインストール
 RUN go install github.com/air-verse/air@latest
 
 # ソースコードを全てコピー
